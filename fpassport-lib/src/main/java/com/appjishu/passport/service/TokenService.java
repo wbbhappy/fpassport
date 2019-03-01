@@ -5,10 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 /**
-* @author liushaoming(liushaomingdev@163.com)
-* @version 创建时间：2017年8月27日 上午11:00:37 
-* 类说明 
-*/
+ * @author liushaoming(liushaomingdev@163.com)
+ * @version 创建时间：2017年8月27日 上午11:00:37
+ * 类说明
+ */
 @Service
 public class TokenService {
 	@Autowired

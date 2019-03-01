@@ -19,6 +19,6 @@ import java.lang.annotation.Target;
 * Controller需要Passport认证
 */
 public @interface AuthController {
-//	boolean validate() default true;
+	//boolean validate() default true;
 	boolean value() default true;
 }
