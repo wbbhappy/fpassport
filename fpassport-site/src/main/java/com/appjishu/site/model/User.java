@@ -1,10 +1,5 @@
 package com.appjishu.site.model;
 
-/** 
-* @author liushaoming(liushaomingdev@163.com)
-* @version 创建时间：2017年8月26日 下午8:59:11 
-* 类说明 
-*/
 public class User {
 	private Long id;
 	private String createTime;

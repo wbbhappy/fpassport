@@ -2,11 +2,9 @@ package com.appjishu.passport.redis;
 
 import java.util.Map;
 import java.util.Set;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
-
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -17,14 +15,12 @@ public class RedisClient {
 	public JedisPool getJedisPool() {
 		return jedisPool;
 	}
-
 	public void setJedisPool(JedisPool jedisPool) {
 		this.jedisPool = jedisPool;
 	}
 
 	/**
 	 * 关闭Jedis
-	 * 
 	 * @param pool
 	 * @param redis
 	 */

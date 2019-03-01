@@ -3,11 +3,6 @@ package com.appjishu.site.biz.dao;
 import com.appjishu.site.model.User;
 import org.apache.ibatis.annotations.Param;
 
-/** 
-* @author liushaoming(liushaomingdev@163.com)
-* @version 创建时间：2017年8月26日 下午8:45:39 
-* 类说明 
-*/
 public interface UserDAO {
 	Integer insert(User user);
 	User getUserByMobile(@Param("mobile") String mobile);

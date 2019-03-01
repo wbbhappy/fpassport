@@ -1,12 +1,10 @@
 package com.appjishu.passport.service;
 
-import org.apache.ibatis.annotations.Param;
 import com.appjishu.passport.dao.TokenDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
-/** 
+/**
 * @author liushaoming(liushaomingdev@163.com)
 * @version 创建时间：2017年8月27日 上午11:00:37 
 * 类说明 
@@ -15,7 +13,6 @@ import org.springframework.util.StringUtils;
 public class TokenService {
 	@Autowired
 	private TokenDAO tokenDAO;
-	
 	@Autowired
 	private TokenRedisService tokenRedisService;
 	

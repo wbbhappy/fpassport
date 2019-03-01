@@ -1,6 +1,5 @@
 package com.appjishu.passport.model;
-
-/** 
+/**
 * @author liushaoming(liushaomingdev@163.com)
 * @version 创建时间：2017年8月27日 上午9:58:06 
 * 类说明 
@@ -42,5 +41,4 @@ public class Token {
 	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
 	}
-	
 }

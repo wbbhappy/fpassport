@@ -3,8 +3,7 @@ package com.appjishu.passport.service;
 import com.appjishu.passport.dao.TokenDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-/** 
+/**
 * @author liushaoming(liushaomingdev@163.com)
 * @version 创建时间：2017年8月27日 下午9:04:17 
 * 类说明 

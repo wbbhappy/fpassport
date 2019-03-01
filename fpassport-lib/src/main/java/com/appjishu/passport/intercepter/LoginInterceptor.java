@@ -1,12 +1,5 @@
 package com.appjishu.passport.intercepter;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.alibaba.fastjson.JSON;
 import com.appjishu.passport.annotation.AuthController;
 import com.appjishu.passport.constant.AuthResponseCode;
@@ -14,7 +7,6 @@ import com.appjishu.passport.model.AuthResult;
 import com.appjishu.passport.model.Passport;
 import com.appjishu.passport.service.LoginIntercepterService;
 import com.appjishu.passport.service.TokenService;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,23 +14,21 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Map;
 
-/**
- * @author liushaoming
- */
 @Component
 public class LoginInterceptor extends HandlerInterceptorAdapter {
     private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
     @Autowired
     LoginIntercepterService loginIntercepterService;
-
     @Autowired
     private TokenService tokenService;
-
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws Exception {
-
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (handler.getClass().isAssignableFrom(HandlerMethod.class)) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             Object controller = handlerMethod.getBean();
@@ -49,10 +39,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             if (!present) {
                 return true;
             }
-
             String userIdStr = request.getHeader("userId");
             String token = request.getHeader("token");
-
             if (!StringUtils.isEmpty(userIdStr)) {
                 logger.info("访问需要登录的接口(Authed)...........");
                 if (StringUtils.isEmpty(token)) {
@@ -68,15 +56,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                     flushError(response, AuthResponseCode.TOKEN_INVALID, AuthResponseCode.TOKEN_INVALID_DESC);
                     return false;
                 }
-
             } else {
                 flushError(response, AuthResponseCode.USER_ID_IS_NULL, AuthResponseCode.USER_ID_IS_NULL_DESC);
                 return false;
             }
             // 被@AuthController注解的 结束
-
         }
-
         boolean flag = isPermission(request, response);
         logger.info("isPermission:" + flag);
         return flag;
@@ -105,15 +90,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
      */
     private void printParameters(HttpServletRequest request, Object controller) {
         StringBuilder paramsResponse = new StringBuilder();
-
         String controllerName = controller.getClass().getSimpleName();
         if (controllerName.contains("WebCache")) {
             return;
         }
         Map<String, String[]> paramsMap = request.getParameterMap();
-
         paramsResponse.append("request params :\n");
-
         for (Map.Entry<String, String[]> entry : paramsMap.entrySet()) {
             paramsResponse.append(entry.getKey() + ":" + entry.getValue()[0] + "\n");
         }

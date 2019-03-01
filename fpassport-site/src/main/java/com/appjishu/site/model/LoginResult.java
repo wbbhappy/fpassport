@@ -1,10 +1,5 @@
 package com.appjishu.site.model;
 
-/** 
-* @author liushaoming(liushaomingdev@163.com)
-* @version 创建时间：2017年8月27日 上午11:15:52 
-* 类说明 
-*/
 public class LoginResult {
 	private Long userId;
 	private String token;
@@ -42,5 +37,4 @@ public class LoginResult {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
 }

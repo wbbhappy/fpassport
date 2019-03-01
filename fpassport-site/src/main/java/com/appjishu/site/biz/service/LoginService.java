@@ -10,17 +10,11 @@ import com.appjishu.site.util.MD5Util;
 import com.appjishu.site.biz.dao.UserDAO;
 import com.appjishu.site.constant.AccountType;
 import com.appjishu.site.constant.UserStatus;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * @author liushaoming(liushaomingdev@163.com)
- * @version 创建时间：2017年8月26日 下午11:35:32
- * 类说明
- */
 @Service
 public class LoginService {
     private static final Logger logger = LoggerFactory.getLogger(LoginService.class);
@@ -28,10 +22,8 @@ public class LoginService {
 
     @Autowired
     private UserDAO userDAO;
-
     @Autowired
     private TokenService tokenService;
-
     @Autowired
     private TokenDBService tokenDBService;
 
@@ -57,7 +49,6 @@ public class LoginService {
                 user.setStatus(UserStatus.active);
                 insertedCount = userDAO.insert(user);
                 Long userId = user.getId();
-
                 if (insertedCount == 1) {
                     // 产生token并存入数据库
                     String token = MD5Util.md5(DateTool.getTime() + password).toLowerCase();
@@ -70,7 +61,6 @@ public class LoginService {
                         loginResult.setCodeDesc(AuthResponseCode.SUCCESS_DESC);
                         registerSuccess = true;
                     }
-
                 }
             }
             if (!registerSuccess) {
@@ -81,7 +71,6 @@ public class LoginService {
                 loginResult.setCodeDesc(AuthResponseCode.USER_REGISTER_FAILED_DESC);
             }
         }
-
         return loginResult;
     }
 

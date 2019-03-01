@@ -7,11 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/** 
-* @author liushaoming(liushaomingdev@163.com)
-* @version 创建时间：2017年8月26日 下午11:21:36 
-* 类说明 
-*/
 @RequestMapping("passport")
 @Controller
 public class PassportController {

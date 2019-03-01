@@ -3,8 +3,7 @@ package com.appjishu.passport.service;
 import com.appjishu.passport.model.Passport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-/** 
+/**
 * @author liushaoming(liushaomingdev@163.com)
 * @version 创建时间：2017年8月20日 下午2:01:52 
 * 类说明 
